@@ -8,6 +8,7 @@ module.exports = {
     return Feature
       .create({
         title: req.body.title,
+        duration: req.body.duration
       })
       .then(feature => res.status(201).send(feature))
       .catch(error => res.status(400).send(error));

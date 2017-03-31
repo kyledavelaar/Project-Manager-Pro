@@ -25,30 +25,39 @@ module.exports = {
       .catch(error => res.status(400).send(error));
   },
 
-  // Update a single feature list item and return the (number completed/total (which is array length))
+  // Update a single feature list item
   update(req, res) {
     return FeatureItem
       .findAll({
         where: {
-          id: req.params.featureItemId,
+          // id: req.params.featureItemId,
           featureId: req.params.featureId,
         },
       })
       .then(featureItems => {
-        console.log(Array.isArray(featureItems)); // grabs an array of items
 
-
-
-        if (!featureItems) {
-          return res.status(404).send({
-            message: 'Feature Item Not Found',
-          });
+        // loop and find where featureItems id is equal to parameter id
+        for (let i = 0; i < featureItems.length; i += 1) {
+          if (!featureItems[i]) {
+            return res.status(404).send({
+              message: 'FeatureItem Not Found',
+            });
+          }
+          if (featureItems[i].id == req.params.featureItemId) {
+            return featureItems[i]
+              .update(req.body, { fields: Object.keys(req.body) })
+              .then(updatedFeatureItem => {
+                // find how many tasks have been completed
+                let completed = 0;
+                featureItems.forEach(item => {
+                  if (item.complete) completed += 1;
+                })
+                // return percentage of compeleted tasks
+                res.status(200).json(completed/featureItems.length * 100)
+              })
+              .catch(error => res.status(400).send(error));
+          }
         }
-
-        return featureItems
-          .update(req.body, { fields: Object.keys(req.body) })
-          .then(updatedFeatureItem => res.status(200).send(updatedFeatureItem))
-          .catch(error => res.status(400).send(error));
       })
       .catch(error => res.status(400).send(error));
   },
@@ -76,4 +85,5 @@ module.exports = {
       })
       .catch(error => res.status(400).send(error));
   },
+
 };

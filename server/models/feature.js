@@ -4,15 +4,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  }, {
-    classMethods: {
-      associate: (models) => {
-        Feature.hasMany(models.FeatureItem, {
-          foreignKey: 'featureId',
-          as: 'featureItems',
-        });
-      },
+    duration: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
-  });
+  }, {
+      classMethods: {
+        associate: (models) => {
+          Feature.hasMany(models.FeatureItem, {
+            foreignKey: 'featureId',
+            as: 'featureItems',
+          });
+        },
+      },
+    });
   return Feature;
 };
