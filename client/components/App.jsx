@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import FeaturesCntr from './feature/FeaturesCntr.jsx';
 import AddFeature from './add_feature/AddFeature.jsx';
 import CheckpointCntr from './checkpoint/CheckpointCntr.jsx';
-import axios from 'axios'
-import List from './List/List.jsx';
+import axios from 'axios';
 
 const url = '/api/features';
 
@@ -28,9 +27,18 @@ class App extends Component {
     axios
       .get('/api/features')
       .then((allFeatures) => {
-        featuresList = allFeatures.data;
+
         // console.log(allFeatures.data);
-        // console.log(featuresList);
+        for (let i = 0; i < allFeatures.data.length; i += 1) {
+          // console.log('hi');
+          let createdTime = Date.parse(allFeatures.data[i].createdAt);
+          let currentTime = Date.now();
+          let elapsed = (currentTime - createdTime) / 1000; // converts ms to secs
+          allFeatures.data[i].elapsed = elapsed > allFeatures.data[i].duration ? allFeatures.data[i].duration : elapsed; 
+        }
+
+        featuresList = allFeatures.data;
+
         this.setState({
           features: featuresList,
         })
@@ -74,6 +82,7 @@ class App extends Component {
 
 
   render() {
+    
     const addFeature = this.addFeature;
     const featuresArray = this.state.features;
     const removeFeature = this.removeFeature;
