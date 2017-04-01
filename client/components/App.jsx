@@ -3,6 +3,7 @@ import FeaturesCntr from './feature/FeaturesCntr.jsx';
 import AddFeature from './add_feature/AddFeature.jsx';
 import CheckpointCntr from './checkpoint/CheckpointCntr.jsx';
 import axios from 'axios'
+import List from './List/List.jsx';
 
 const url = '/api/features';
 
@@ -60,6 +61,7 @@ removeFeature(index) {
       <div id="app-container" style={{ textAlign: 'center' }}>
         <FeaturesCntr featuresArray={featuresArray} timeUpdate={timeUpdate} />
         <CheckpointCntr addFeature={addFeature} />
+        <List />
       </div>
     );
   }
