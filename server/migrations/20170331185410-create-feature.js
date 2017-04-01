@@ -11,6 +11,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      elapsed: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
       duration: {
         type: Sequelize.INTEGER,
         allowNull: false,
