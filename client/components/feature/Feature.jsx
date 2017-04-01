@@ -14,16 +14,15 @@ class Feature extends Component {
 
     // Each Feature will have its own pseudo state to update its timer
     let interval = setInterval(() => {
-      this.setState({ elapsed: this.state.elapsed + 1 });
-      if (this.state.elapsed === this.props.deadline) {
+      if (this.state.elapsed >= this.props.deadline) {
         clearInterval(interval);
+      } else {
+        this.setState({ elapsed: this.state.elapsed + 1 });
       }
     }, 1000);
   }
 
   render() {
-
-    console.log(this.props.title);
     return (
       <div className="feature-container">
         <h1 className="feature-header">{this.props.title}</h1>

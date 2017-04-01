@@ -11,7 +11,8 @@ body {
   height: auto;
   margin: 20px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-content: center;
   flex-wrap: wrap;
 }
 
@@ -20,7 +21,8 @@ body {
 .feature-form {
   margin: 10px;
   width: 500px;
-  height: 500px;
+  height: 300px;
+  margin: auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -118,6 +120,7 @@ body {
 
 /*Layout/Styling for feature/project*/
 .feature-container {
+  margin-bottom: 40px;
   /*border: 1px solid white;*/
 }
 
@@ -140,6 +143,9 @@ body {
 /*Remove Feature button*/
 .remove-Feature {
   position: absolute;
+  width: 30px;
+  height: 30px;
+  text-align: center;
   top: 21px;
   left: 226px;
   background: transparent;

@@ -26,16 +26,24 @@ class FeatureInfo extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.addFeature(this.state.title, this.state.deadline);
+    
+    this.setState({
+      title: '',
+      deadline: ''
+    })
   }
 
   render() {
+
+
+
     return (
       <form className="feature-form" onSubmit={this.handleSubmit}>
         <div className="title-container">
-          <input type="text" className="feature-title" placeholder="Project Name" value={this.state.title} onChange={(a) => this.handleTitleChange(a)} />
+          <input type="text" id='tit' className="feature-title" placeholder="Project Name" value={this.state.title} onChange={(a) => this.handleTitleChange(a)} />
         </div>
         <div className="deadline-container">
-          <input type="text" className="deadline" placeholder="Duration" value={this.state.deadline} onChange={(a) => this.handleDeadlineChange(a)} />
+          <input type="text" id='dine' className="deadline" placeholder="Duration" value={this.state.deadline} onChange={(a) => this.handleDeadlineChange(a)} />
         </div>
           <button type='submit' id="add-feature">Add Project</button>
       </form>
