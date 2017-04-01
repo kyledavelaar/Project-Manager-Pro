@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 const path = require('path');
+const cors = require('cors')
 
 // Set up the express app
 const app = express();
@@ -9,6 +10,7 @@ const port = parseInt(process.env.PORT, 10) || 8000;
 app.set('port', port);
 
 // Parse incoming requests data (https://github.com/expressjs/body-parser)
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

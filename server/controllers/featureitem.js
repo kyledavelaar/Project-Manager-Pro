@@ -30,7 +30,6 @@ module.exports = {
     return FeatureItem
       .findAll({
         where: {
-          // id: req.params.featureItemId,
           featureId: req.params.featureId,
         },
       })

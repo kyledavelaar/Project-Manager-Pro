@@ -2,10 +2,6 @@ const featuresController = require('../controllers').features;
 const featureItemsController = require('../controllers').featureItems;
 
 module.exports = (app) => {
-  app.get('/api', (req, res) => res.status(200).send({
-    message: 'Welcome to the Todos API!',
-  }));
-
   // Save one feature title and the deadline to the database
   app.post('/api/features', featuresController.create);
 
