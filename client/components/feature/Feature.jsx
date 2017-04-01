@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Timer from './Timer.jsx';
 import Progress from './Progress.jsx';
 import InfoBtn from './InfoBtn.jsx';
-
+import RemoveFeature from './RemoveFeature.jsx'
 
 
 class Feature extends Component {
@@ -28,9 +28,11 @@ class Feature extends Component {
       <div className="feature-container">
         <h1 className="feature-header">{this.props.title}</h1>
         <div className="tracker-container">
-          <Timer index={this.props.index} removeFeature={this.props.removeFeature} duration={this.props.deadline} elapsed={this.state.elapsed} />
+          <RemoveFeature index={this.props.index} removeFeature={this.props.removeFeature} />
+          <Timer duration={this.props.deadline} elapsed={this.state.elapsed} />
           <Progress />
           <InfoBtn />
+          
         </div>
       </div>
     );
