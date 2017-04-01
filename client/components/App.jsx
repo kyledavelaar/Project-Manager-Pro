@@ -26,7 +26,7 @@ class App extends Component {
       .then((x) => console.log('this', x.data))
   }
 
-  // method passed to addFeature btn for adding new project
+  // adds a new feature(project) to the DOM as well as pushes it to the database
   addFeature(title, duration) {
     let feature = {
       title: title,
@@ -45,6 +45,11 @@ class App extends Component {
         })
       })
   }
+
+removeFeature(index) {
+  featuresList.splice(index, 1)
+}
+
 
   render() {
     const addFeature = this.addFeature;
