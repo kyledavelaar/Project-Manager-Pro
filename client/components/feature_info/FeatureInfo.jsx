@@ -29,11 +29,11 @@ class FeatureInfo extends Component {
     return (
       <form className="feature-form" onSubmit={this.handleSubmit}>
         <div className="title-container">
-          <label for="feature-title">Project Name:</label>
+          <label htmlFor="feature-title">Project Name:</label>
           <input className="feature-title" type="text" value={this.state.title} onChange={this.handleTitleChange} />
         </div>
         <div className="deadline-container">
-          <label for="deadline">Deadline:</label>
+          <label htmlFor="deadline">Deadline:</label>
           <input className="deadline" type="date" value={this.state.deadline} onChange={this.handleDeadlineChange} />
         </div>
       </form>
