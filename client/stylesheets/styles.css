@@ -137,6 +137,20 @@ body {
   /*border: 1px solid white;*/
 }
 
+/*Remove Feature button*/
+.remove-Feature {
+  position: absolute;
+  top: 21px;
+  left: 226px;
+  background: transparent;
+  color: #C0193B;
+  font-size: 18px;
+  font-weight: bold;
+  border-style: none;
+  border: 1px solid #C0193B;
+  border-radius: 50%;
+}
+
 .time-container {
   position: absolute;
   z-index: 1;
@@ -157,8 +171,14 @@ body {
 
 .update-btn {
   position: absolute;
-  top: 270px;
-  left: 110px;
+  top: 250px;
+  left: 76px;
+  width: 147px;
+  height: 36px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  font-size: 20px;
 }
 
 .time-circle .CircularProgressbar {
@@ -180,7 +200,8 @@ body {
 }
 
 .CircularProgressbar .CircularProgressbar-trail {
-  /*stroke: #d6d6d6;*/
+  stroke: #d6d6d6;
+  opacity: 0.1;
 }
 
 .CircularProgressbar .CircularProgressbar-text {

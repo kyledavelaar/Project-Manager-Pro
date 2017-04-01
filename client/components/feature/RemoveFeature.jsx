@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class RemoveFeature extends Component {
   render() {
     return (
-      <button onClick={() => this.props.removeFeature(this.props.index)}>X</button>
+      <button className='remove-Feature' onClick={() => this.props.removeFeature(this.props.index)}>X</button>
     )
   }
 }

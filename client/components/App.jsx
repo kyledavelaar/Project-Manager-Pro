@@ -24,8 +24,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    get()
-      .then((x) => console.log('this', x.data))
+    // retieve all the features from the database and load the initial state
+    axios
+      .get('/api/features')
+      .then((allFeatures) => {
+        featuresList = allFeatures.data;
+        // console.log(allFeatures.data);
+        // console.log(featuresList);
+        this.setState({
+          features: featuresList,
+        })
+      })
   }
 
   // adds a new feature(project) to the DOM as well as pushes it to the database
@@ -48,20 +57,20 @@ class App extends Component {
       })
   }
 
-// small problem with this is that the sterinterval keeps going even after the remove, doesnt cause any serious errors but we do get a warning message in the console of the browser
-// removes a feature(project) from the DOM as well as remove it from the database
-removeFeature(index) {
-  // removes the feature from the global array Features List
-  const deletedFeat = featuresList.splice(index, 1);
-  // sends a request to the server to remove the feature by ID
-  axios
-    .delete(`/api/features/${deletedFeat[0].id}`)
-    .then(() => {
-      this.setState({
-        features: featuresList
+  // small problem with this is that the sterinterval keeps going even after the remove, doesnt cause any serious errors but we do get a warning message in the console of the browser
+  // removes a feature(project) from the DOM as well as remove it from the database
+  removeFeature(index) {
+    // removes the feature from the global array Features List
+    const deletedFeat = featuresList.splice(index, 1);
+    // sends a request to the server to remove the feature by ID
+    axios
+      .delete(`/api/features/${deletedFeat[0].id}`)
+      .then(() => {
+        this.setState({
+          features: featuresList
+        })
       })
-    })
-}
+  }
 
 
   render() {
@@ -71,9 +80,8 @@ removeFeature(index) {
 
     return (
       <div id="app-container" style={{ textAlign: 'center' }}>
-        <FeaturesCntr featuresArray={featuresArray} removeFeature={removeFeature} />
         <CheckpointCntr addFeature={addFeature} />
-        <List />
+        <FeaturesCntr featuresArray={featuresArray} removeFeature={removeFeature} />
       </div>
     );
   }
