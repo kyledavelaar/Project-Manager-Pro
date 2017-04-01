@@ -26,7 +26,7 @@ class App extends Component {
       features: featuresList
     };
     this.addFeature = this.addFeature.bind(this);
-    this.timeUpdate = this.timeUpdate.bind(this);
+    // this.timeUpdate = this.timeUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -54,21 +54,21 @@ class App extends Component {
       })
   }
 
-  timeUpdate(index, startTime) {
-    if (startTime === 0) {
-      return;
-    }
-    setTimeout((() => {
-      let { features } = this.state;
-      features[index].duration = startTime;
-      // featuresList[index].duration = startTime;
-      this.setState({
-        features
-      })
-      startTime -= 1;
-      this.timeUpdate(index, startTime)
-    }).bind(this), 1000)
-  }
+  // timeUpdate(index, startTime) {
+  //   if (startTime === 0) {
+  //     return;
+  //   }
+  //   setTimeout((() => {
+  //     let { features } = this.state;
+  //     features[index].duration = startTime;
+  //     // featuresList[index].duration = startTime;
+  //     this.setState({
+  //       features
+  //     })
+  //     startTime -= 1;
+  //     this.timeUpdate(index, startTime)
+  //   }).bind(this), 1000)
+  // }
 
   render() {
     const addFeature = this.addFeature;
