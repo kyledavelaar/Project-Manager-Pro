@@ -4,6 +4,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    elapsed: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
     duration: {
       type: DataTypes.INTEGER,
       allowNull: false,

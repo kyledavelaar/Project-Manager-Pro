@@ -6,13 +6,6 @@ import axios from 'axios'
 
 const url = '/api/features';
 
-// const feature = {
-//   title: "Untitled",
-//   deadline: "",
-//   time: null,
-//   progress: null,
-// }
-
 function get() {
   return axios.get(url)
 }
@@ -26,7 +19,6 @@ class App extends Component {
       features: featuresList
     };
     this.addFeature = this.addFeature.bind(this);
-    // this.timeUpdate = this.timeUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -54,22 +46,6 @@ class App extends Component {
       })
   }
 
-  // timeUpdate(index, startTime) {
-  //   if (startTime === 0) {
-  //     return;
-  //   }
-  //   setTimeout((() => {
-  //     let { features } = this.state;
-  //     features[index].duration = startTime;
-  //     // featuresList[index].duration = startTime;
-  //     this.setState({
-  //       features
-  //     })
-  //     startTime -= 1;
-  //     this.timeUpdate(index, startTime)
-  //   }).bind(this), 1000)
-  // }
-
   render() {
     const addFeature = this.addFeature;
     const featuresArray = this.state.features;
@@ -78,7 +54,6 @@ class App extends Component {
     return (
       <div id="app-container" style={{ textAlign: 'center' }}>
         <FeaturesCntr featuresArray={featuresArray} timeUpdate={timeUpdate} />
-        {/*<AddFeature addFeature={addFeature} />*/}
         <CheckpointCntr addFeature={addFeature} />
       </div>
     );
