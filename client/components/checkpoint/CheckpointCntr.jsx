@@ -8,12 +8,12 @@ class CheckpointCntr extends Component {
     return (
       <div className="feature-info-cntr">
         <div className="feature-form-cntr">
-          <FeatureInfo />
+          <FeatureInfo addFeature={this.props.addFeature} />
         </div>
-        <div className="checkpoint-container">
+        {/*<div className="checkpoint-container">
           <Checkpoint />
           <AddCheckpoint />
-        </div>
+        </div>*/}
       </div>
     );
   }
