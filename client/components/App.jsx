@@ -20,6 +20,7 @@ class App extends Component {
       features: featuresList
     };
     this.addFeature = this.addFeature.bind(this);
+    this.removeFeature = this.removeFeature.bind(this);
   }
 
   componentDidMount() {
@@ -47,19 +48,30 @@ class App extends Component {
       })
   }
 
+// small problem with this is that the sterinterval keeps going even after the remove, doesnt cause any serious errors but we do get a warning message in the console of the browser
+// removes a feature(project) from the DOM as well as remove it from the database
 removeFeature(index) {
-  featuresList.splice(index, 1)
+  // removes the feature from the global array Features List
+  const deletedFeat = featuresList.splice(index, 1);
+  // sends a request to the server to remove the feature by ID
+  axios
+    .delete(`/api/features/${deletedFeat[0].id}`)
+    .then(() => {
+      this.setState({
+        features: featuresList
+      })
+    })
 }
 
 
   render() {
     const addFeature = this.addFeature;
     const featuresArray = this.state.features;
-    const timeUpdate = this.timeUpdate;
+    const removeFeature = this.removeFeature;
 
     return (
       <div id="app-container" style={{ textAlign: 'center' }}>
-        <FeaturesCntr featuresArray={featuresArray} timeUpdate={timeUpdate} />
+        <FeaturesCntr featuresArray={featuresArray} removeFeature={removeFeature} />
         <CheckpointCntr addFeature={addFeature} />
         <List />
       </div>

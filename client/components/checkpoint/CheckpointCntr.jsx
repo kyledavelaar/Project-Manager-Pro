@@ -10,10 +10,6 @@ class CheckpointCntr extends Component {
         <div className="feature-form-cntr">
           <FeatureInfo addFeature={this.props.addFeature} />
         </div>
-        {/*<div className="checkpoint-container">
-          <Checkpoint />
-          <AddCheckpoint />
-        </div>*/}
       </div>
     );
   }

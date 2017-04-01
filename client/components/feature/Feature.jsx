@@ -28,7 +28,7 @@ class Feature extends Component {
       <div className="feature-container">
         <h1 className="feature-header">{this.props.title}</h1>
         <div className="tracker-container">
-          <Timer index={this.props.index} duration={this.props.deadline} elapsed={this.state.elapsed} />
+          <Timer index={this.props.index} removeFeature={this.props.removeFeature} duration={this.props.deadline} elapsed={this.state.elapsed} />
           <Progress />
           <InfoBtn />
         </div>
