@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 const path = require('path');
-const cors = require('cors')
+const cors = require('cors');
 
 // Set up the express app
 const app = express();
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Serves all files in the bundle
-app.use(express.static(path.join(__dirname, './build')))
+app.use(express.static(path.join(__dirname, './build')));
 
 // Entry to routes located in server/controllers/index.js
 require('./server/routes')(app);

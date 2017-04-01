@@ -5,18 +5,65 @@ html, body {
 body {
   background: #353638;
 }
-
+/*styling/layout for features/projects container (holds all features/projects)*/
 #features-ctnr {
   width: auto;
   height: auto;
   margin: 20px;
-  /*border: 1px solid white;*/
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
+/*Add new feature/project form*/
+
+.feature-form {
+  margin: 10px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.feature-title {
+  margin: 10px 0 10px 0;
+  padding-left: 5px;
+  width: 400px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  background: transparent;
+  border-style: none;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.feature-title:hover {
+  border: 1px solid #EA0C3A;
+}
+
+.deadline {
+  margin: 10px 0 10px 0;
+  padding-left: 5px;
+  width: 400px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  background: transparent;
+  border-style: none;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.deadline:hover {
+  border: 1px solid #EA0C3A;
+}
+
 #add-feature {
+  margin: 10px 0 10px 0;
   width: 150px;
   height: 50px;
   color: white;
@@ -24,37 +71,22 @@ body {
   border-style: none;
   border: 1px solid white;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 500;
 }
 
-.feature-info-cntr {
-  margin: 20px;
-  width: 345px;
-  border: 1px solid white;
+#add-feature:hover {
+  color: #A0FF00;
+  border: 1px solid #A0FF00;
 }
 
-.feature-form-cntr {
-  margin: 20px;
-  width: 300px;
-  height: 65px;
-  border: 1px solid white;
-}
-
-.feature-form {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
-
+/*form for creating checkpoints for feature/project*/
 .checkpoint-container {
   margin: 20px;
   width: 300px;
   display: flex;
   flex-direction: column;
   height: 65px;
-  border: 1px solid white;
   color: white;
 }
 
@@ -71,10 +103,20 @@ body {
 .deadline-container {
   display: flex;
 }
+
 .feature-sbm-btn-cntr {
   display: flex;
 }
 
+.update-btn {
+  width: 50px;
+  height: 25px;
+  background: transparent;
+  border-style: none;
+  border: 1px solid white;
+}
+
+/*Layout/Styling for feature/project*/
 .feature-container {
   /*border: 1px solid white;*/
 }
@@ -113,7 +155,7 @@ body {
   height: 150px;
 }
 
-.info-btn {
+.update-btn {
   position: absolute;
   top: 270px;
   left: 110px;

@@ -32,16 +32,12 @@ class FeatureInfo extends Component {
     return (
       <form className="feature-form" onSubmit={this.handleSubmit}>
         <div className="title-container">
-          <label htmlFor="feature-title">ProjectName:</label>
-          <input className="feature-title" type="text" value={this.state.title} onChange={(a) => this.handleTitleChange(a)} />
+          <input type="text" className="feature-title" placeholder="Project Name" value={this.state.title} onChange={(a) => this.handleTitleChange(a)} />
         </div>
-
         <div className="deadline-container">
-          <label htmlFor="deadline">Deadline:</label>
-          <input className="deadline" type="text" value={this.state.deadline} onChange={(a) => this.handleDeadlineChange(a)} />
+          <input type="text" className="deadline" placeholder="Duration" value={this.state.deadline} onChange={(a) => this.handleDeadlineChange(a)} />
         </div>
-        
-          <button id="add-feature" type='submit'>Add Project</button>
+          <button type='submit' id="add-feature">Add Project</button>
       </form>
     );
   }
