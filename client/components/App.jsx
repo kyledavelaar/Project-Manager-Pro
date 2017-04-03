@@ -4,12 +4,8 @@ import AddFeature from './add_feature/AddFeature.jsx';
 import CheckpointCntr from './checkpoint/CheckpointCntr.jsx';
 import axios from 'axios';
 
-const url = '/api/features';
-
-function get() {
-  return axios.get(url)
-}
-
+// This array is constant. We add and remove from it and then use it to set state.
+// By doing this, we do not have to create a new variable each time we want to set state.
 let featuresList = [];
 
 class App extends Component {
@@ -24,13 +20,13 @@ class App extends Component {
 
   componentDidMount() {
     // retieve all the features from the database and load the initial state
+    // this only runs on the first load of the page
     axios
       .get('/api/features')
       .then((allFeatures) => {
 
-        // console.log(allFeatures.data);
+        // calculates the total amount of time since the project was created and renders the correct time (red circle)
         for (let i = 0; i < allFeatures.data.length; i += 1) {
-          // console.log('hi');
           let createdTime = Date.parse(allFeatures.data[i].createdAt);
           let currentTime = Date.now();
           let elapsed = (currentTime - createdTime) / 1000; // converts ms to secs

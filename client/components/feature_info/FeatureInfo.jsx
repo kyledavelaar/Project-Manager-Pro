@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class FeatureInfo extends Component {
+  // This component renders the red and green bars that belong to each feature/project. 
+  // The 2 handles changes grab the data from the input fields.
+  // Handle submit sends the input data back to App.jsx where we add the new info into the database,
+  // and render them on the screen
+
   constructor(props) {
     super(props);
     this.state = {
