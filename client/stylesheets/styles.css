@@ -235,9 +235,10 @@ body {
 .login {
   margin: 10px;
   font-size: 20px;
-  
+
 }
 
 .login-button {
-
+  margin: 10px;
+  font-size: 20px;
 }
