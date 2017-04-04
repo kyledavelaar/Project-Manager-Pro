@@ -5,7 +5,7 @@ export default class AddTask extends Component {
     super();
     this.state = {
       newProject: {},
-      categories: ['Web Design', 'Web Development', 'Mobile Development']
+      categories: ['John', 'Sally', 'Billy', 'Sarah']
     }
   }
   
@@ -37,21 +37,20 @@ export default class AddTask extends Component {
       <option key={i} value={category}>{category}</option>
     );
     return (
-      <div>
-        <h3>Add Task</h3>
+      <div >
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <div>
-            <label>Title</label><br />
-            <input type="text" ref="title" placeholder="title here" />
+          <div className="form-group">
+            <input className="task-input" type="text" ref="title" placeholder="Add a Task" />
+            <br />
           </div>
-          <div>
-            <label>Category</label><br />
-              <select ref="category">
+          <div className="form-group">
+            {/*<label>Category</label>*/}
+              <select className="select" ref="category">
                 {categoryOptions}
               </select>
           </div>
           <br />
-          <input type="submit" value="Submit" /> 
+          <input className=" btn btn-success task-submit" type="submit" value="Submit" /> 
         </form>
       </div>
     )

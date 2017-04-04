@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ProjectItem extends Component {
+export default class TaskItem extends Component {
   
   deleteProject(id) {
     this.props.onDelete(id); 
@@ -15,7 +15,7 @@ export default class ProjectItem extends Component {
   }
 }
 
-ProjectItem.propTypes = {
+TaskItem.propTypes = {
   project: React.PropTypes.object,
   onDelete: React.PropTypes.func 
 };
