@@ -50,3 +50,18 @@ I guess this is pretty self explanatory. You just have to follow which component
 - ***Notes*** - Each feature is being given its own state and we are setting the setInterval on each feature itself. It may seem a bit strange to have multiple states outside of our main state. But documentation says that this is the best way to maintain *pseudo-states*.
 
 **Goodluck fellow cohortmates! May our project live on!**
+
+App
+  Login
+  Project
+    CheckpointCtr
+      FeatureInfo (input project and duration)
+    FeaturesCtr
+      Feature
+        Remove
+        Timer
+          circularProgressBar 
+        Progress
+         circularProgressBar 
+        Info Btn
+          Modal To Add Tasks

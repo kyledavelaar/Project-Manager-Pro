@@ -22,20 +22,20 @@ export default class Login extends Component {
         this.props.view()
       }
     })
-
   }
   
   handleCreateUser(e) {
     e.preventDefault();
-    //console.log(this.refs.username.value, this.refs.password.value);
-    
+    console.log('CREATE USER', this.refs.username.value, this.refs.password.value);
     //once user is created, redirect them to project page 
+    
     axios.post('./createUser', {
-        username: this.refs.username.value, 
-        password: this.refs.password.value
-      }).then((response) => {
-        this.props.view()    
-      })
+      username: this.refs.username.value, 
+      password: this.refs.password.value
+    }).then((response) => {
+      console.log('CREATE USER REDIRECT')
+      this.props.view()    
+    }).catch((err) => console.log('*******CREATE USER ERROR*****', err))
   }
 
   

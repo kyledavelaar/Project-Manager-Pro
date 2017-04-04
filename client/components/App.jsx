@@ -8,15 +8,13 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'login' 
+      view: 'project' 
     };
     
   }
 
   changeView() {
-    console.log('this works');
     this.setState({view: 'project'})
-    console.log(this);
   }
 
   render() {
