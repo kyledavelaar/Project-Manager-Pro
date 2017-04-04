@@ -28,7 +28,7 @@ The Database is built on **PostreSQL** with a **Sequelize ORM**. If you are unsu
 4. Type into the command line `createdb features`
 5. Type `psql features` and you should be in the SQL shell
 5. Then check your accounts by typing `SELECT * from pg_user;`
-6. If you have the user `student`, I am assuming that your password is `ilovetesting`. If you dont, you may create `student` with the command `CREATE USER student PASSWORD "ilovetesting"`
+6. If you have the user `student`, I am assuming that your password is `ilovetesting`. If you dont, you may create `student` with the command `CREATE USER student PASSWORD "ilovetesting"`;
 7. Exit the SQL shell by typing `\q` and type `sequelize db:migrate`. This command attaches the schema outlined in `./server/migrations.js` and `./server/models.js`. If you ever make any changes to the two aforementioned files, you have to follow these next steps or your code won't work.
 
 **Dropping the Database**
