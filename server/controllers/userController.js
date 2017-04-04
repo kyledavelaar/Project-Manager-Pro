@@ -1,9 +1,9 @@
-const User = require('..models').User;
+const User = require('../models').User;
 
 
 module.exports = {
 	// Verifies that the user exists in db
-	verify(req, res) {
+	verify: function (req, res) {
 		User.findOne({ username: req.body.username }, (err, result) => {
 			if (!result || result.password !== req.body.password) {
 				return res.status(404).send({
@@ -16,19 +16,18 @@ module.exports = {
 	},
 	
 	// Creates a new user in db
-	create(req, res) {
+	create: function (req, res) {
 		return User
 			.create({
 				username: req.body.username,
 				password: req.body.password,
-				teamName: req.body.teamName
 			})
 			.then(user => res.status(201).send(true))
-			.catch(error => res.status(400).send(error));
+			.catch(error => {console.log(error); res.status(400).send(error)});
 	},
 
 	// Updates user in db
-	update(req, res) {
+	update: function (req, res) {
 		return User
 			.findById(req.params.username, {
 				include: [{
@@ -53,7 +52,7 @@ module.exports = {
 	},
 
 	// Removes a single user from the db
-	destroy(req, res) {
+	destroy: function (req, res) {
 		return User
 			.findById(req.params.username)
 			.then(user => {

@@ -14,7 +14,7 @@ export default class Login extends Component {
     
     //send validation request to server
     //if successful login; change state in App Component to Project 
-    axios.post('./verify', {
+    axios.post('./verifyUser', {
       username: this.refs.username.value, 
       password: this.refs.password.value
     }).then((response) => {
@@ -47,18 +47,18 @@ export default class Login extends Component {
         <div>
           <h3>Login</h3>
           <form id="chat-form" onSubmit={this.handleLogin.bind(this)}>
-            <input placeholder="Username" type="text" ref="username" />
-            <input placeholder="Password" type="password" ref="password" />
-            <input type="submit" className="hidden" />
+            <input className="login" placeholder="Username" type="text" ref="username" />
+            <input className="login" placeholder="Password" type="password" ref="password" />
+            <input className="login-button" type="submit" className="hidden" />
           </form>
         </div>
 
         <div>
           <h3>Create Account</h3>
           <form id="chat-form" onSubmit={this.handleCreateUser.bind(this)}>
-            <input placeholder="Username" type="text" ref="username" />
-            <input placeholder="Password" type="password" ref="password" />
-            <input type="submit" className="hidden" />
+            <input className="login" placeholder="Username" type="text" ref="username" />
+            <input className="login" placeholder="Password" type="password" ref="password" />
+            <input className="login-button" type="submit" className="hidden" />
           </form>
         </div>
       </div>

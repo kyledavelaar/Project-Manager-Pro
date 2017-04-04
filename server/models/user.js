@@ -1,25 +1,25 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const User = sequelize.define('users', {
     username: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     teamName: {
         type: DataTypes.STRING,
     },
-  // }, {
-  //   classMethods: {
-  //     associate: (models) => {
-  //       User.belongsToMany(models.FeatureItem, {
-  //         foreignKey: 'featureItemId',
-  //         as: 'users',
-  //       });
-  //     },
-  //   },
+  }, {
+    // classMethods: {
+    //   associate: (models) => {
+    //     User.belongsToMany(models.User, {
+    //       foreignKey: 'featureItemId',
+    //       as: 'users',
+    //     });
+    //   },
+    // },
   });
   return User;
 }
