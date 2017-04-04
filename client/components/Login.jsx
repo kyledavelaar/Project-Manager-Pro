@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -11,12 +10,32 @@ export default class Login extends Component {
 
   handleLogin(e) {
     e.preventDefault();
-    console.log(this.refs.username.value, this.refs.password.value);
+    //console.log(this.refs.username.value, this.refs.password.value);
+    
+    //send validation request to server
+    //if successful login; change state in App Component to Project 
+    axios.post('./verify', {
+      username: this.refs.username.value, 
+      password: this.refs.password.value
+    }).then((response) => {
+      if (response === true) {
+        this.props.view()
+      }
+    })
+
   }
   
   handleCreateUser(e) {
     e.preventDefault();
-    console.log(this.refs.username.value, this.refs.password.value);
+    //console.log(this.refs.username.value, this.refs.password.value);
+    
+    //once user is created, redirect them to project page 
+    axios.post('./createUser', {
+        username: this.refs.username.value, 
+        password: this.refs.password.value
+      }).then((response) => {
+        this.props.view()    
+      })
   }
 
   
@@ -33,8 +52,9 @@ export default class Login extends Component {
             <input type="submit" className="hidden" />
           </form>
         </div>
+
         <div>
-          <h3>Don't Have an Account?</h3>
+          <h3>Create Account</h3>
           <form id="chat-form" onSubmit={this.handleCreateUser.bind(this)}>
             <input placeholder="Username" type="text" ref="username" />
             <input placeholder="Password" type="password" ref="password" />

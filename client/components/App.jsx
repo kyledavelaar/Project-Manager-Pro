@@ -13,19 +13,23 @@ export default class App extends Component {
     
   }
 
+  changeView() {
+    console.log('this works');
+    this.setState({view: 'project'})
+    console.log(this);
+  }
 
   render() {
 
     if (this.state.view === 'login') {
       return (
-        <Login />
+        <Login view={this.changeView.bind(this)} />
       ) 
     } 
     if (this.state.view === 'project')
       return (
         <div id="app-container" style={{ textAlign: 'center' }}>
-          <CheckpointCntr addFeature={addFeature} />
-          <FeaturesCntr featuresArray={featuresArray} removeFeature={removeFeature} />
+          <Project />
         </div>
       );
   }
