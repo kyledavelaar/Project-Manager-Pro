@@ -39,10 +39,18 @@ const app = express();
 const router = express.Router();
 const userController = require('./server/controllers/userMongo');
 
+
 //model dependencies
 // const User = require('./models/userModel');
 // const Feature = require('./models/featureModel');
 // const Item = require('./models/itemModel');
+
+// Parse incoming requests data (https://github.com/expressjs/body-parser)
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
 
 let db;
 
