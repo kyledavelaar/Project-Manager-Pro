@@ -3,8 +3,15 @@ import Feature from './Feature.jsx';
 
 class FeaturesCntr extends Component {
   render() {
-    const featureArr = this.props.featuresArray.map((feature, index) => {
-      console.log('FEATURE', feature);
+    console.log('FEATURES CONTROLLER', this.props.featuresArray)
+    let featureList = [];
+    for (let key in this.props.featuresArray) {
+      featureList.push(this.props.featuresArray[key])
+    }
+    console.log('FEATURE LIST REALLY ARRAY?', featureList);
+    
+    const featureArr = featureList.map((feature, index) => {
+      //console.log('FEATURE', feature);
       return <Feature 
         key={index} 
         removeFeature={this.props.removeFeature} 

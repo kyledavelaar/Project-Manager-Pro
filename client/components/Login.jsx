@@ -22,8 +22,19 @@ export default class Login extends Component {
       console.log('VERIFY USER RESPONSE', response);
       if (response.data === true) {
         this.props.view()
+        
+        // axios
+        // .get('/retrieveProject')
+        // .then((allFeatures) => {
+        //   console.log('all features', allFeatures);
+        //   //////////////////////////
+        //   this.props.loadFeatures(allFeatures);
+        // }).catch((err) => console.log('*******VERIFY ERROR*****', err))
+
       }
-    }).catch((err) => console.log('*******LOGIN USER ERROR*****', err))
+    })
+
+
   }
   
   handleCreateUser(e) {
@@ -36,7 +47,8 @@ export default class Login extends Component {
       password: this.refs.password.value
     }).then((response) => {
       console.log('CREATE USER REDIRECT')
-      this.props.view()    
+      this.props.view() 
+      this.props.loadFeatures(allFeatures);
     }).catch((err) => console.log('*******CREATE USER ERROR*****', err))
   }
 

@@ -42,6 +42,7 @@ const path = require('path');
 const app = express();
 const router = express.Router();
 const userController = require('./server/controllers/userMongo');
+const featureController = require('./server/controllers/features');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -67,23 +68,17 @@ app.use(function (req, res, next) {
 });
 
 
-// app.get('/', function (req, res) {
-//   res.json({ message: 'API Initialized' });
-// });
-// app.post('/createUser', (req, res) => {
-//   const userCollection = db.collection('users');
-
-//   userCollection.insert([req.body.username, req.body.password], (err, result) => {
-//     if (err) return console.log(err, 'THIS IS AN ERROR FROM USER COLLECTION INSERT')
-//     console.log('saved to database')
-//     res.end();
-//   })
-// })
-// // app.post('/createUser', userController.create);
-
 app.post('/verifyUser', userController.verifyUser);
 
 app.post('/createUser', userController.createUser);
+
+app.post('/createProject', featureController.createProject);
+
+app.get('/getProject', featureController.getProject);
+
+app.get('/retrieveProject', featureController.retrieveProject);
+
+app.delete('/deleteProject/:title', featureController.deleteProject);
 
 app.listen(8000, () => {
   console.log('Listening on 8000');
