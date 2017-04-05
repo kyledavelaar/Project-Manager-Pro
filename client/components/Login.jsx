@@ -10,18 +10,20 @@ export default class Login extends Component {
 
   handleLogin(e) {
     e.preventDefault();
- 
-    this.props.view()
+     console.log('LOGIN USER', this.refs.username1.value, this.refs.password1.value);
+
     //send validation request to server
     //if successful login; change state in App Component to Project 
-    // axios.post('./verifyUser', {
-    //   username: this.refs.username.value, 
-    //   password: this.refs.password.value
-    // }).then((response) => {
-    //   if (response === true) {
-    //     this.props.view()
-    //   }
-    // })
+    
+    axios.post('./verifyUser', {
+      username: this.refs.username1.value, 
+      password: this.refs.password1.value
+    }).then((response) => {
+      console.log('VERIFY USER RESPONSE', response);
+      if (response.data === true) {
+        this.props.view()
+      }
+    }).catch((err) => console.log('*******LOGIN USER ERROR*****', err))
   }
   
   handleCreateUser(e) {
@@ -50,8 +52,8 @@ export default class Login extends Component {
             id="chat-form" onSubmit={this.handleLogin.bind(this)}
           >
             <h3 className="create-account">Login</h3>
-            <input className="deadline" placeholder="Username" type="text" ref="username" />
-            <input className="deadline" placeholder="Password" type="password" ref="password" />
+            <input className="deadline" placeholder="Username" type="text" ref="username1" />
+            <input className="deadline" placeholder="Password" type="password" ref="password1" />
             <input type="submit" className="hidden" />
           </form>
         </div>

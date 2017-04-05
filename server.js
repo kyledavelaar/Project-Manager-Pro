@@ -29,6 +29,10 @@
 //   console.log('Listening on port 8000')
 // });
 
+//model dependencies
+// const User = require('./models/userModel');
+// const Feature = require('./models/featureModel');
+// const Item = require('./models/itemModel');
 
 //new MONGO SETUP
 const express = require('express');
@@ -39,18 +43,8 @@ const app = express();
 const router = express.Router();
 const userController = require('./server/controllers/userMongo');
 
-
-//model dependencies
-// const User = require('./models/userModel');
-// const Feature = require('./models/featureModel');
-// const Item = require('./models/itemModel');
-
-// Parse incoming requests data (https://github.com/expressjs/body-parser)
-app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-
 
 let db;
 
@@ -64,38 +58,56 @@ mongoose.connect('mongodb://darrick:123@ds039411.mlab.com:39411/taskify', functi
 // Serves all files in the bundle
 app.use(express.static(path.join(__dirname, './build')));
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.use(function (req, res) {
+app.use(function (req, res, next) {
   res.setHeader(`Access-Control-Allow-Origin`, `*`);
   res.setHeader(`Access-Control-Allow-Credentials`, `true`);
   res.setHeader(`Access-Control-Allow-Methods`, `GET,HEAD,OPTIONS,POST,PUT,DELETE`);
   res.setHeader(`Access-Control-Allow-Headers`, `Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers`);
+  next();
 });
 
-app.get('/', function (req, res) {
-  res.json({ message: 'API Initialized' });
-});
-app.post('/createUser', (req, res) => {
-  const userCollection = db.collection('users');
 
-  userCollection.insert([req.body.username, req.body.password], (err, result) => {
-    if (err) return console.log(err, 'THIS IS AN ERROR FROM USER COLLECTION INSERT')
-    console.log('saved to database')
-    res.end();
-  })
-})
-// app.post('/createUser', userController.create);
+// app.get('/', function (req, res) {
+//   res.json({ message: 'API Initialized' });
+// });
+// app.post('/createUser', (req, res) => {
+//   const userCollection = db.collection('users');
 
-router.route('/login', userController.verify);
+//   userCollection.insert([req.body.username, req.body.password], (err, result) => {
+//     if (err) return console.log(err, 'THIS IS AN ERROR FROM USER COLLECTION INSERT')
+//     console.log('saved to database')
+//     res.end();
+//   })
+// })
+// // app.post('/createUser', userController.create);
 
-router.route('/signup', userController.create);
+app.post('/verifyUser', userController.verifyUser);
 
-app.use('/api', router);
+app.post('/createUser', userController.createUser);
+
 app.listen(8000, () => {
   console.log('Listening on 8000');
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       //SAMPLE INSERTIONS TO TEST CONNECTIVITY (CAN REMOVE)
 
       // const userCollection = db.collection('users');
