@@ -10,18 +10,18 @@ export default class Login extends Component {
 
   handleLogin(e) {
     e.preventDefault();
-    //console.log(this.refs.username.value, this.refs.password.value);
-    
+ 
+    this.props.view()
     //send validation request to server
     //if successful login; change state in App Component to Project 
-    axios.post('./verifyUser', {
-      username: this.refs.username.value, 
-      password: this.refs.password.value
-    }).then((response) => {
-      if (response === true) {
-        this.props.view()
-      }
-    })
+    // axios.post('./verifyUser', {
+    //   username: this.refs.username.value, 
+    //   password: this.refs.password.value
+    // }).then((response) => {
+    //   if (response === true) {
+    //     this.props.view()
+    //   }
+    // })
   }
   
   handleCreateUser(e) {
@@ -52,7 +52,7 @@ export default class Login extends Component {
             <h3 className="create-account">Login</h3>
             <input className="deadline" placeholder="Username" type="text" ref="username" />
             <input className="deadline" placeholder="Password" type="password" ref="password" />
-            <input className="login-button" type="submit" className="hidden" />
+            <input type="submit" className="hidden" />
           </form>
         </div>
 
@@ -64,7 +64,7 @@ export default class Login extends Component {
             <h3 className="create-account">Create Account</h3>
             <input className="deadline" placeholder="Username" type="text" ref="username" />
             <input className="deadline" placeholder="Password" type="password" ref="password" />
-            <input className="login-button" type="submit" className="hidden" />
+            <input type="submit" className="hidden" />
           </form>
         </div>
       </div>
