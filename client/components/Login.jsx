@@ -44,20 +44,26 @@ export default class Login extends Component {
     return (
       <div id="app-container" style={{ textAlign: 'center' }}>
         <h1 style={{color: 'white'}}>Project Manager Pro</h1>
-        <div>
-          <h3>Login</h3>
-          <form id="chat-form" onSubmit={this.handleLogin.bind(this)}>
-            <input className="login" placeholder="Username" type="text" ref="username" />
-            <input className="login" placeholder="Password" type="password" ref="password" />
+        <div className="title-container">
+          <form 
+            className="feature-form" 
+            id="chat-form" onSubmit={this.handleLogin.bind(this)}
+          >
+            <h3 className="create-account">Login</h3>
+            <input className="deadline" placeholder="Username" type="text" ref="username" />
+            <input className="deadline" placeholder="Password" type="password" ref="password" />
             <input className="login-button" type="submit" className="hidden" />
           </form>
         </div>
 
-        <div>
-          <h3>Create Account</h3>
-          <form id="chat-form" onSubmit={this.handleCreateUser.bind(this)}>
-            <input className="login" placeholder="Username" type="text" ref="username" />
-            <input className="login" placeholder="Password" type="password" ref="password" />
+        <div className="title-container">
+          <form 
+            className="feature-form" 
+            onSubmit={this.handleCreateUser.bind(this)}
+          >
+            <h3 className="create-account">Create Account</h3>
+            <input className="deadline" placeholder="Username" type="text" ref="username" />
+            <input className="deadline" placeholder="Password" type="password" ref="password" />
             <input className="login-button" type="submit" className="hidden" />
           </form>
         </div>

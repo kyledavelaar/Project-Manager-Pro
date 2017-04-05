@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid'; 
+import axios from 'axios';
 export default class AddTask extends Component {
   constructor() {
     super();
@@ -9,9 +10,16 @@ export default class AddTask extends Component {
     }
   }
   
-  // static defaultProps = {
-  //   categories: ['Web Design', 'Web Development', 'Mobile Development']
-  // }
+  componentDidMount() {
+    //make sure routing and response object is right
+
+    // axios.get('./getUsers')
+    //   .then(response => {
+    //     this.setState(
+    //     Object.assign({}, this.state, {categories: response.data.categories})
+    //   )
+    // })
+  }
 
   handleSubmit(e) {
     if (this.refs.title.value === ''){

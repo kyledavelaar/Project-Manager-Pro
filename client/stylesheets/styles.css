@@ -241,6 +241,12 @@ body {
 .login-button {
   margin: 10px;
   font-size: 20px;
+  background-color: white;
+}
+
+.create-account {
+  color: white;
+  text-align: center;
 }
 
 /*===MODAL==================================*/

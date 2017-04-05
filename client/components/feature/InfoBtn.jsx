@@ -30,7 +30,7 @@ class InfoBtn extends Component {
 
       {/*Button trigger modal*/}
       <button type="button" className="update-btn" data-toggle="modal" data-target="#myModal">
-        UpdateInfo
+        Add Tasks
       </button>
 
       {/*Modal*/}
@@ -48,7 +48,8 @@ class InfoBtn extends Component {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
+              {/*=========ADD TASK TO THE SERVER==================*/}
+              <button type="button" data-dismiss="modal" className="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>

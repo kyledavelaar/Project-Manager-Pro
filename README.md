@@ -55,7 +55,7 @@ App
   Login
   Project
     CheckpointCtr
-      FeatureInfo (input project and duration)
+      FeatureInfo (name/dur)
     FeaturesCtr
       Feature
         Remove
