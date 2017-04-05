@@ -241,4 +241,39 @@ body {
 .login-button {
   margin: 10px;
   font-size: 20px;
+  background-color: white;
+}
+
+.create-account {
+  color: white;
+  text-align: center;
+}
+
+/*===MODAL==================================*/
+
+
+
+input {
+  text-align: center;
+}
+
+
+.task-input {
+  width: 300px;
+  font-size: 16px;
+}
+
+select { 
+  width: 200px;
+  font-size: 16px;
+  text-align-last:center; 
+}
+
+.task-submit {
+  padding: 5px 15px;
+  margin-top: -20px;
+}
+
+.task-container {
+  
 }

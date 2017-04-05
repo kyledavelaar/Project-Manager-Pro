@@ -14,9 +14,7 @@ export default class App extends Component {
   }
 
   changeView() {
-    console.log('this works');
     this.setState({view: 'project'})
-    console.log(this);
   }
 
   render() {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 class FeatureInfo extends Component {
-  // This component renders the red and green bars that belong to each feature/project. 
+ 
   // The 2 handles changes grab the data from the input fields.
-  // Handle submit sends the input data back to App.jsx where we add the new info into the database,
+  // Handle submit sends the input data back to Project.jsx where we add the new info into the database,
   // and render them on the screen
 
   constructor(props) {
@@ -45,10 +45,10 @@ class FeatureInfo extends Component {
     return (
       <form className="feature-form" onSubmit={this.handleSubmit}>
         <div className="title-container">
-          <input type="text" id='tit' className="feature-title" placeholder="Project Name" value={this.state.title} onChange={(a) => this.handleTitleChange(a)} />
+          <input type="text" className="feature-title" placeholder="Project Name" value={this.state.title} onChange={(a) => this.handleTitleChange(a)} />
         </div>
         <div className="deadline-container">
-          <input type="text" id='dine' className="deadline" placeholder="Duration" value={this.state.deadline} onChange={(a) => this.handleDeadlineChange(a)} />
+          <input type="text" className="deadline" placeholder="Duration" value={this.state.deadline} onChange={(a) => this.handleDeadlineChange(a)} />
         </div>
           <button type='submit' id="add-feature">Add Project</button>
       </form>

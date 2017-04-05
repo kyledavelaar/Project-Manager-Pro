@@ -13,7 +13,7 @@ app.set('port', port);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(logger('dev'));
+
 
 // Serves all files in the bundle
 app.use(express.static(path.join(__dirname, './build')));
