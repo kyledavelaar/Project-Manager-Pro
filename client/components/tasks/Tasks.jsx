@@ -16,7 +16,7 @@ export default class Tasks extends Component {
     }
 
     return (
-      <div>
+      <div className="task-container">
         {taskItems}
       </div>
     );
