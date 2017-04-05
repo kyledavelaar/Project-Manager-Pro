@@ -30,7 +30,7 @@ class Feature extends Component {
           <RemoveFeature index={this.props.index} removeFeature={this.props.removeFeature} />
           <Timer duration={this.props.deadline} elapsed={this.state.elapsed} />
           <Progress />
-          <InfoBtn />
+          <InfoBtn title={this.props.title} />
           
         </div>
       </div>
