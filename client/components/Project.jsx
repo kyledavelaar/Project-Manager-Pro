@@ -35,12 +35,26 @@ export default class Project extends Component {
         }
 
         featuresList = allFeatures.data;
+        //console.log('*************************', featuresList);
+         let arrayFeatures = [];
+        for (let key in featuresList) {
+          arrayFeatures.push(featuresList[key])
+        }
 
         this.setState({
-          features: featuresList,
+          features: arrayFeatures,
         })
       })
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('shouldComponentUpdate');
+  //   if (nextState.features !== this.state.features) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   // adds a new feature(project) to the DOM as well as pushes it to the database
   addFeature(title, duration) {
@@ -52,11 +66,10 @@ export default class Project extends Component {
     axios
       .post('/createProject', feature)
       .then((newFeature) => {
-
-        featuresList.push(newFeature.data);
-        this.setState({ features: featuresList }, () => {
-          console.log('New Feature Added');
-          console.log('FEATURES STATE', this.state.features);
+        console.log('FEATURES LIST IS AN ARRYAY?', featuresList);
+        //arrayFeatures.push(newFeature.data);
+        this.setState({ 
+          features: this.state.features.concat(newFeature.data)
         })
       })
   }
@@ -66,8 +79,8 @@ export default class Project extends Component {
   removeFeature(index) {
     // removes the feature from the global array Features List
     let arrayFeatures = [];
-    for (let key in featuresList) {
-      arrayFeatures.push(featuresList[key])
+    for (let key in this.state.features) {
+      arrayFeatures.push(this.state.features[key])
     }
     console.log('HELLLLLOOOOOOOOOOOOOO');
 
@@ -90,13 +103,13 @@ export default class Project extends Component {
   render() {
     console.log('PROJECT FEATURES STATE', this.props.storedFeatures)
     const addFeature = this.addFeature;
-    const featuresArray = this.state.features;
+    //const featuresArray = this.state.features;
     const removeFeature = this.removeFeature;
 
     return (
       <div id="app-container" style={{ textAlign: 'center' }}>
         <CheckpointCntr addFeature={addFeature} />
-        <FeaturesCntr featuresArray={featuresArray} removeFeature={removeFeature} />
+        <FeaturesCntr featuresArray={this.state.features} removeFeature={removeFeature} />
       </div>
     );
   }
