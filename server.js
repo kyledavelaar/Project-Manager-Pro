@@ -48,8 +48,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 let db;
-
-mongoose.connect('mongodb://darrick:123@ds039411.mlab.com:39411/taskify', function (err, database) {
+//mongodb://darrick:123@ds039411.mlab.com:39411/taskify
+mongoose.connect('mongodb://kyle:kyle@ds161580.mlab.com:61580/future', function (err, database) {
   if (err) console.log(err);
   else {
     console.log('Connected to DB');
