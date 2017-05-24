@@ -1,15 +1,2 @@
 
-App
-  Login
-  Project
-    CheckpointCtr
-      FeatureInfo (name/dur)
-    FeaturesCtr
-      Feature
-        Remove
-        Timer
-          circularProgressBar 
-        Progress
-         circularProgressBar 
-        Info Btn
-          Modal To Add Tasks
+A FullStack React Application to help teams be organized and efficient. 
