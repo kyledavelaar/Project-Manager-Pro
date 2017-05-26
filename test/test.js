@@ -8,16 +8,6 @@ const host = 'http://localhost:8000';
 const port = process.env.port || 8000;
 
 
-//Example - Passes Test
-// describe('db unit tests', () => {
-// 	describe('GET', () => {
-// 		it('returns a status 200', () => {
-// 			request.get('http://localhost:8000/createUser', (err, res) => {
-// 				expect(res.statusCode).toEqual(200);
-// 			});
-// 		});
-// 	});
-// });
 
 describe('db unit tests', () => {
 	//tests userController.verify method
@@ -28,6 +18,7 @@ describe('db unit tests', () => {
 				.send(user)
 				.expect(200, done)
 		});
+
 		it('returns 401 if username/pw do not exist in database', () => {
 			const user = { username: 'Morgan', password: 'loser' }
 			request.post('http://localhost:8000/verifyUser')
@@ -35,6 +26,8 @@ describe('db unit tests', () => {
 				.expect(401, done)
 		});
 	});
+
+
 	describe('POST', () => {
 		//tests userController.create method
 		it('return 200 if new user has been added to the db', () => {
@@ -43,6 +36,7 @@ describe('db unit tests', () => {
 				.send(user)
 				.expect(200, done)
 		});
+
 		it('return 400 if user already exists', () => {
 			const user = { username: 'Chris', password: 'ilovetesting' }
 			request.post('http://localhost:8000/createUser')
@@ -50,17 +44,21 @@ describe('db unit tests', () => {
 				.expect(400, done)
 		});
 	});
+
+
 	//tests userController.update method
-	// describe('GET', () => {
-	// 	it('checks if a user has been updated in the db', () => {
-	// 		request.get('', (err, res) => {
-	// 			//checks if username equals new username
-	// 			//and password equals new password
-	// 			expect('new username').toEqual(req.body.username);
-	// 			expect('new password').toEqual(req.body.password);
-	// 		});
-	// 	});
-	// });
+	describe('GET', () => {
+		it('checks if a user has been updated in the db', () => {
+			request.get('', (err, res) => {
+				//checks if username equals new username
+				//and password equals new password
+				expect('new username').toEqual(req.body.username);
+				expect('new password').toEqual(req.body.password);
+			});
+		});
+	});
+
+
 	//tests userController.destroy method
 	describe('GET', () => {
 		it('checks if a user has been deleted from db', () => {
