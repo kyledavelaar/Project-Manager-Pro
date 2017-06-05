@@ -1,40 +1,4 @@
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const http = require('http');
-// const cors = require('cors');
-// const mongodb = require('mongodb');
-// const MongoClient = mongodb.MongoClient;
 
-//OLD SQL SETUP
-
-// // Set up the express app
-// const app = express();
-// const port = parseInt(process.env.PORT, 10) || 8000;
-// app.set('port', port);
-
-// // Parse incoming requests data (https://github.com/expressjs/body-parser)
-// app.use(cors());
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// // app.use(logger('dev'));
-
-// // Serves all files in the bundle
-// app.use(express.static(path.join(__dirname, './build')));
-
-// // Entry to routes located in ./server/controllers/index.js
-// require('./server/routes')(app);
-
-// const server = http.createServer(app);
-// server.listen(port, () => {
-//   console.log('Listening on port 8000')
-// });
-
-//model dependencies
-// const User = require('./models/userModel');
-// const Feature = require('./models/featureModel');
-// const Item = require('./models/itemModel');
-
-//new MONGO SETUP
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -48,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 let db;
-//mongodb://darrick:123@ds039411.mlab.com:39411/taskify
-mongoose.connect('mongodb://kyle:kyle@ds161580.mlab.com:61580/future', function (err, database) {
+
+mongoose.connect('mongodb://', function (err, database) {
   if (err) console.log(err);
   else {
     console.log('Connected to DB');
