@@ -1,4 +1,4 @@
 
 A FullStack React Application to help teams be organized and efficient. 
 
-![alt text] (https://github.com/futurecodesmith/Project-Manager-Pro/blob/master/Screen%20Shot%202017-06-02%20at%205.32.48%20PM.png)
+![project manager pro](https://user-images.githubusercontent.com/22839320/27047742-fe91acc8-4f5d-11e7-9a25-eca9e765d0fa.png)
